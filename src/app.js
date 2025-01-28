@@ -2,22 +2,28 @@ const express= require('express');
 
 const app =express();
 
-// app.use("/",(req,res)=>{
-//     res.send("Shiva")
-// })
+app.get("/user/:userId",(req,res)=>{
+    console.log(req.params);
+    res.send({fname:"shiva",lname:"verma"})
+})
 
-// app.use("/test",(req,res)=>{
-//     res.send("Hello From server")
-// })
-
-app.get("/user",(req,res)=>{
+app.get("/user/:userId/:name/:password",(req,res)=>{
+    console.log(req.params);
     res.send({fname:"shiva",lname:"verma"})
 })
 
 app.post("/user",(req,res)=>{
     
+   
     res.send("Data Saved Successfully")
 })
+
+
+// // work for // /ac, /abc
+// app.get("/ab*cd",(req,res)=>
+// {
+//     res.send({fname:"shiva",lname:"verma" ,value:"trial h ye"})
+// })
 
 app.delete("/user",(req,result)=>{
     result.send("deleted suceessfully")
